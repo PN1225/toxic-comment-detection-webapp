@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toxic Comment Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🛡️ Toxic Comment Detection</h1>
+    <p class="subtitle">Check whether a comment is Safe or Toxic</p>
+
+    <form method="POST">
+        <textarea name="comment" placeholder="Enter your comment here..." required></textarea>
+        <button type="submit">Check Comment</button>
+    </form>
+
+    {% if result != "" %}
+        <div class="result-box">
+            {{ result }}
+        </div>
+    {% endif %}
+
+    {% if comment != "" %}
+        <div class="safe-comment">
+            <strong>Visible Comment:</strong>
+            <p>{{ comment }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
